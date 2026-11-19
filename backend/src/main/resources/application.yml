@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: piloto
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  modulith:
+    detection-strategy: explicitly-annotated
+  flyway:
+    enabled: true
+
+server:
+  port: 8520
+
+app:
+  cors:
+    allowed-origins:
+      - http://localhost:4210
+    allowed-methods: GET,POST,PUT,PATCH,DELETE,OPTIONS
+    allowed-headers: Content-Type,Accept
+    allow-credentials: false
